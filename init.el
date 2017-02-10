@@ -18,8 +18,8 @@
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
 
-(use-package solarized-theme
-  :config (load-theme 'solarized-dark t))
+(use-package zenburn-theme
+  :config (load-theme 'zenburn t))
 
 (use-package nyan-mode
   :config (nyan-mode t))
