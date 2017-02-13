@@ -198,11 +198,11 @@
     (add-hook 'js2-mode-hook #'js2-refactor-mode)
     (js2r-add-keybindings-with-prefix "C-c C-m")))
 
-(use-package php-mode
+(use-package web-mode
   :mode "\\.php$"
   :config (setq default-tab-width 4)
 
-  (add-hook 'php-mode-hook
+  (add-hook 'web-mode-hook
             'turn-on-smartparens-strict-mode))
 
 (use-package expand-region
