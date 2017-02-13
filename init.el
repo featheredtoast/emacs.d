@@ -5,7 +5,6 @@
 ;; Do I need these other repos? Who knows!
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ;;("marmalade" . "https://marmalade-repo.org/packages/")
-                         ("melpa-stable" . "https://stable.melpa.org/packages/")
                          ("melpa" . "http://melpa.org/packages/")))
 
 (package-initialize)
@@ -90,7 +89,6 @@
   (add-hook 'prog-mode-hook 'my-coding-hook))
 
 (use-package cider
-  :pin melpa-stable
   :commands (cider-jack-in cider-connect)
   :config
   (add-hook 'cider-connected-hook
@@ -103,10 +101,7 @@
                      :title "CIDER")))
   (setq cider-repl-pop-to-buffer-on-connect nil)
   (setq cider-test-show-report-on-success t)
-  (use-package clj-refactor
-    :pin melpa-stable)
-  (use-package flycheck-clojure
-    :config (flycheck-clojure-setup)))
+  (use-package clj-refactor))
 (use-package clojure-mode
   :config
   (add-hook 'clojure-mode-hook 'paredit-mode)
@@ -146,7 +141,6 @@
 (use-package markdown-mode)
 ;; erlang-mode?
 (use-package magit
-  :pin melpa-stable
   :bind ("C-c g" . magit-status)
   :config (setq magit-branch-prefer-remote-upstream '("master" "develop")))
 
@@ -159,14 +153,6 @@
 (use-package exec-path-from-shell
   :config (when (memq window-system '(mac ns))
             (exec-path-from-shell-initialize)))
-
-(use-package flycheck
-  :config
-  (add-hook 'after-init-hook #'global-flycheck-mode)
-  (add-hook 'prog-mode-hook 'flyspell-prog-mode)
-  (use-package flycheck-pos-tip
-    :config (flycheck-pos-tip-mode)))
-;;(setq flycheck-display-errors-function #'flycheck-pos-tip-error-messages)
 
 ;; tagbar
 ;; surround -- change balanced pairs
