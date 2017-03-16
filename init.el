@@ -169,7 +169,12 @@
 
 (use-package smartparens-config
   :ensure smartparens
-  :commands turn-on-smartparens-strict-mode)
+
+  :commands turn-on-smartparens-strict-mode
+  :config (sp-use-paredit-bindings)
+  :bind (:map smartparens-strict-mode-map
+              ("M-J" . sp-join-sexp)
+              ("]" . sp-up-sexp)))
 
 (use-package js2-mode
   :mode "\\.js$"
@@ -261,7 +266,7 @@
   :init
   (dolist (hook '(prog-mode-hook text-mode-hook))
     (add-hook hook #'whitespace-mode))
-  (add-hook 'before-save-hook #'whitespace-cleanup)
+  ;;(add-hook 'before-save-hook #'whitespace-cleanup)
   :config
   (setq whitespace-line-column 80) ;; limit line length
   (setq whitespace-style '(face tabs empty trailing lines-tail)))
