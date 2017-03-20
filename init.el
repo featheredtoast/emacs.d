@@ -188,6 +188,8 @@
     (add-hook 'js2-mode-hook #'js2-refactor-mode)
     (js2r-add-keybindings-with-prefix "C-c C-m")))
 
+(use-package handlebars-mode)
+
 (use-package web-mode
   :mode "\\.php$"
   :config (setq default-tab-width 4)
