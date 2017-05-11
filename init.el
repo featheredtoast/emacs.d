@@ -302,3 +302,5 @@
                  2
                  3))
   (add-to-list 'compilation-error-regexp-alist 'mocha-test))
+
+(setq web-mode-enable-auto-indentation nil)
